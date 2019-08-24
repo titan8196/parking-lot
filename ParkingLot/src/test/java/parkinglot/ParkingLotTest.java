@@ -58,4 +58,39 @@ public class ParkingLotTest {
 		parkingLot.parkVehicle(vehicle);
 		assertEquals(parkingLot.leave(2),false);
 	}
+	
+	@Test
+	public void getAllCarsRegistrationNumberWithColor(){
+		for(int i=0; i<4;i++){
+			if(i%2==0){
+				vehicle = new Car("KA-01-P-33"+i, "White");
+			}else {
+				vehicle = new Car("KA-01-P-33"+i, "Red");
+			}
+			parkingLot.parkVehicle(vehicle);
+		}
+		parkingLot.getAllCarsWithColor("White", "RegistrationNumber");
+	}
+	
+	@Test
+	public void getAllCarsSlotNumberWithColor(){
+		for(int i=0; i<4;i++){
+			if(i%2==0){
+				vehicle = new Car("KA-01-P-33"+i, "White");
+			}else {
+				vehicle = new Car("KA-01-P-33"+i, "Red");
+			}
+			parkingLot.parkVehicle(vehicle);
+		}
+		parkingLot.getAllCarsWithColor("White", "SlotNumber");
+	}
+	
+	@Test
+	public void carsWithColorNotFound(){
+		for(int i=0; i<4;i++){
+			vehicle = new Car("KA-01-P-33"+i, "Red");
+			parkingLot.parkVehicle(vehicle);
+		}
+		parkingLot.getAllCarsWithColor("White", "SlotNumber");
+	}
 }

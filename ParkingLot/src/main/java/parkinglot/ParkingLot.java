@@ -108,4 +108,18 @@ public class ParkingLot {
 			}
 		}
 	}
+	
+	public void getSlotNumForRegistrationNum(String RegistrationNumber){
+		int flag=0;
+		for(int i=0; (i<parkingSpots.length) && (flag==0);i++){
+			if(parkingSpots[i] != null && 
+					parkingSpots[i].getVehicle().getRegistrationNumber().equalsIgnoreCase(RegistrationNumber)){
+				System.out.println(parkingSpots[i].getSpotNumber());
+				flag=1;
+			}
+		}
+		if (flag==0){
+			System.out.println("Not found");
+		}
+	}
 }

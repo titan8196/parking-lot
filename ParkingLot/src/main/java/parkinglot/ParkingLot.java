@@ -64,6 +64,7 @@ public class ParkingLot {
 				removeFromMap(colorToVehicle,parkingSpots[i]);
 				parkingSpots[i] = null;
 				System.out.println("Slot number " + slotNumber + " is free");
+				availableSlots--;
 				return true;
 			}
 		}

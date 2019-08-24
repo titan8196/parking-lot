@@ -17,11 +17,11 @@ public class ParkingLotTest {
 	@Before
 	public void setUp(){
 		parkingLot = new ParkingLot(6);
-		vehicle = new Car("KA-01-P-333", "White");
 	}
 	
 	@Test
 	public void parkVehicleSlotAvailable(){
+		vehicle = new Car("KA-01-P-333", "White");
 		assertEquals(parkingLot.parkVehicle(vehicle),true);
 	}
 	
@@ -43,5 +43,19 @@ public class ParkingLotTest {
 		}
 		vehicle = new Car("KA-01-P-334", "White");
 		assertEquals(parkingLot.parkVehicle(vehicle),true);
+	}
+	
+	@Test
+	public void leaveSlotVehicleExists(){
+		vehicle = new Car("KA-01-P-333", "White");
+		parkingLot.parkVehicle(vehicle);
+		assertEquals(parkingLot.leave(1),true);
+	}
+	
+	@Test
+	public void leaveSlotVehicleDoesntExists(){
+		vehicle = new Car("KA-01-P-333", "White");
+		parkingLot.parkVehicle(vehicle);
+		assertEquals(parkingLot.leave(2),false);
 	}
 }

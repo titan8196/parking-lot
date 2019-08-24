@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import parkinglot.Vehicle.Vehicle;
+import static parkinglot.Utils.Constants.*;
 
 public class ParkingLot {
 	private ParkingSpot[] parkingSpots;
@@ -98,13 +99,15 @@ public class ParkingLot {
 		} else {
 			for(int i=0;i<listParkingSlot.size();i++){
 				car = listParkingSlot.get(i).getVehicle();
-				if("RegistrationNumber".equalsIgnoreCase(type)){
+				if(TYPE_REGISTRATION_NUMBER.equalsIgnoreCase(type)){
 					System.out.print(car.getRegistrationNumber());
-				} else if ("SlotNumber".equalsIgnoreCase(type)){
+				} else if (TYPE_SLOT_NUMBER.equalsIgnoreCase(type)){
 					System.out.print(listParkingSlot.get(i).getSpotNumber());
 				}
 				if(i!=listParkingSlot.size()-1){
 					System.out.print(", ");
+				}else {
+					System.out.println("");
 				}
 			}
 		}

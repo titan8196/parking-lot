@@ -93,4 +93,30 @@ public class ParkingLotTest {
 		}
 		parkingLot.getAllCarsWithColor("White", "SlotNumber");
 	}
+	
+	@Test
+	public void slotNumforRegisNumExists(){
+		for(int i=0; i<4;i++){
+			if(i%2==0){
+				vehicle = new Car("KA-01-P-33"+i, "White");
+			}else {
+				vehicle = new Car("KA-01-P-33"+i, "Red");
+			}
+			parkingLot.parkVehicle(vehicle);
+		}
+		parkingLot.getSlotNumForRegistrationNum("KA-01-P-333");
+	}
+	
+	@Test
+	public void slotNumforRegisNumDoesntExists(){
+		for(int i=0; i<4;i++){
+			if(i%2==0){
+				vehicle = new Car("KA-01-P-33"+i, "White");
+			}else {
+				vehicle = new Car("KA-01-P-33"+i, "Red");
+			}
+			parkingLot.parkVehicle(vehicle);
+		}
+		parkingLot.getSlotNumForRegistrationNum("MH-01-P-333");
+	}
 }

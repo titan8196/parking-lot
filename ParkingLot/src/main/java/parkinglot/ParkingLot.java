@@ -87,4 +87,25 @@ public class ParkingLot {
 			}
 		}
 	}
+	
+	public void getAllCarsWithColor(String color,String type){
+		ArrayList<ParkingSpot> listParkingSlot = colorToVehicle.get(color);
+		Vehicle car;
+		
+		if (listParkingSlot == null){
+			System.out.println("Not found");
+		} else {
+			for(int i=0;i<listParkingSlot.size();i++){
+				car = listParkingSlot.get(i).getVehicle();
+				if("RegistrationNumber".equalsIgnoreCase(type)){
+					System.out.print(car.getRegistrationNumber());
+				} else if ("SlotNumber".equalsIgnoreCase(type)){
+					System.out.print(listParkingSlot.get(i).getSpotNumber());
+				}
+				if(i!=listParkingSlot.size()-1){
+					System.out.print(", ");
+				}
+			}
+		}
+	}
 }

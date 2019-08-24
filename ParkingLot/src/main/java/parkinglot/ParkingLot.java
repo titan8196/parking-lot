@@ -57,4 +57,34 @@ public class ParkingLot {
 			colorToVehicle.put(vehicle.getColor(),listParkingSpot);
 		}
 	}
+	
+	public boolean leave(int slotNumber){
+		for(int i=0; i<parkingSpots.length; i++){
+			if( parkingSpots[i] != null && parkingSpots[i].getSpotNumber()==slotNumber) {
+				removeFromMap(colorToVehicle,parkingSpots[i]);
+				parkingSpots[i] = null;
+				System.out.println("Slot number " + slotNumber + " is free");
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	private void removeFromMap(Map<String,ArrayList<ParkingSpot>> colorToVehicle, ParkingSpot parkingSpot){
+		Vehicle vehicle = parkingSpot.getVehicle();
+		ArrayList<ParkingSpot> listParkingSpot = colorToVehicle.get(vehicle.getColor());
+		listParkingSpot.remove(parkingSpot);
+		colorToVehicle.put(vehicle.getColor(), listParkingSpot);
+	}
+	
+	public void status(){
+		System.out.println("Slot No. Registration No Colour");
+		for (int i=0; i<parkingSpots.length;i++){
+			if(parkingSpots[i]!=null){
+				System.out.println(parkingSpots[i].getSpotNumber()+ "    "  + 
+						"    " + parkingSpots[i].getVehicle().getRegistrationNumber() + "     " +
+			parkingSpots[i].getVehicle().getColor());
+			}
+		}
+	}
 }

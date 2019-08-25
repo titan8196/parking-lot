@@ -69,6 +69,7 @@ public class ParkingLot {
 				return true;
 			}
 		}
+		System.out.println("Slot already empty");
 		return false;
 	}
 	
@@ -84,7 +85,7 @@ public class ParkingLot {
 		for (int i=0; i<parkingSpots.length;i++){
 			if(parkingSpots[i]!=null){
 				System.out.println(parkingSpots[i].getSpotNumber()+ "    "  + 
-						"    " + parkingSpots[i].getVehicle().getRegistrationNumber() + "     " +
+						"    " + parkingSpots[i].getVehicle().getRegistrationNumber() + "   " +
 			parkingSpots[i].getVehicle().getColor());
 			}
 		}

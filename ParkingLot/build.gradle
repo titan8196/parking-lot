@@ -11,6 +11,14 @@ plugins {
     id 'java-library'
 }
 
+apply plugin: 'java'
+
+jar{
+    manifest{
+		attributes 'Main-Class': 'ParkingLotMain'
+	}
+}
+
 repositories {
     // Use jcenter for resolving dependencies.
     // You can declare any Maven/Ivy/file repository here.
